@@ -18,6 +18,15 @@ router.post('/', isLoggedIn, tacosCtrl.create)
 //who do we want to have access
 router.patch('/:id/flip-tasty', isLoggedIn, tacosCtrl.flipTasty)
 
+//Get /:id/edit
+router.get('/:id/edit', isLoggedIn, tacosCtrl.edit)
+
+//PUT /:id
+router.put('/:id', isLoggedIn, tacosCtrl.update)
+
+//DELETE /tacos/:id
+router.delete('/:id', isLoggedIn, tacosCtrl.delete)
+
 export {
   router
 }

@@ -18,6 +18,16 @@
         Make taco <%= taco.tasty ? 'not tasty 🌮🥺' : 'tasty 🌮🎉' %>
       </button>
     </form>
+    <!-- edit form -->
+    <% if (taco.owner.equals(user?.profile._id)) { %>
+      <a href="/tacos/<%= taco._id %>/edit">
+        <button class="btn">Edit this Taco 🌮🚧</button>
+      </a>
+      <!-- delete taco -->
+      <form action="/tacos/<%= taco._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete this taco 🌮💀</button>
+      </form>
+    <% } %>
   <% } %>
 </section>
 
