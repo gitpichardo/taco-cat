@@ -51,8 +51,31 @@ function index(req, res) {
     })
   }
 
+  function flipTasty(req, res) {
+    Taco.findById(req.params.id)
+    .then(taco => {
+      //flip the value of tasty 
+      //what is the value of tasty 
+      //!! changes the value to the opposite of what it was >true to false -- false to true
+      taco.tasty = !taco.tasty
+      taco.save()
+      //() or taco either works -- we are just not using it now but we will be in react
+      //if you populate something after you save it -- that is where this will be useful 
+      .then(()=> {
+        //anytime you are changing data you want to do a redirect
+        //where do i redirect?
+        res.redirect(`/tacos/${taco._id}`)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/tacos')
+    })
+  }
+
 export {
   index,
   create,
-  show
+  show,
+  flipTasty,
 }
