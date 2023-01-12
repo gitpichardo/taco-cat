@@ -7,8 +7,12 @@ const router = Router()
 // Get /tacos
 router.get('/', tacosCtrl.index)
 
+//Get /tacos/:id
+router.get('/:id', tacosCtrl.show)
+
 //Post /tacos
 router.post('/', isLoggedIn, tacosCtrl.create)
+
 
 export {
   router

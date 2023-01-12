@@ -31,8 +31,28 @@ function index(req, res) {
       res.redirect('/tacos')
     })
   }
+  function show(req, res) {
+    //where does my id come from? 
+    //why does params.id work > because it comes from our router which get the id by the /:id route
+    Taco.findById(req.params.id)
+    //why do we populate the owner
+    //we have all the tacos we use the id to refrence the taco object by id
+    .populate("owner")
+    .then(taco => {
+      //console.log(taco) to see the taco object
+      res.render('tacos/show', {
+        taco,
+        title: "🌮 show"
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/tacos')
+    })
+  }
 
 export {
   index,
-  create
+  create,
+  show
 }

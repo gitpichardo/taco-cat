@@ -1,0 +1,14 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <!-- add the ".owner?" to see if the taco has an owner name > this avoids see an error  -->
+  <!-- <% if (taco.owner){ %> 
+	<p>From the kitchen of <%= taco.owner?.name %>...</p>
+  <% } %> -->
+  <p>From the kitchen of <%= taco.owner.name %>...</p>
+  <h1><%= taco.name %> 🌮</h1>
+  <h2>This taco is <%= taco.tasty ? 'tasty! 😋' : 'not tasty! 😫' %></h2>
+</section>
+
+<%- include('../partials/footer') %>
